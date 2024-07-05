@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>お問い合わせ | KUZIRA CAFE</title>
+</head>
+<body id="top" class="font-sans">
+
+    <header class="bg-stripe-bg bg-repeat-x pt-6">
+        <div class="py-2">
+            <a href="index.html"><img src="images/logo.svg" alt="KUZIRA CAFE" class="mx-auto"></a>
+        </div>
+
+        <nav>
+            <ul class="text-blue-800 my-6 flex justify-center md:gap-8 gap-4 md:flex-nowrap flex-wrap">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="index.html#news">お知らせ</a></li>
+                <li><a href="index.html#shop">店舗案内</a></li>
+                <li><a href="access.html">アクセス</a></li>
+                <li><a href="menu.html">メニュー</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 class="text-center text-4xl font-extrabold font-mono bg-contact-hero-bg py-48 bg-no-repeat bg-cover bg-center text-white">お問い合わせ</h1>
+
+    <main class="max-w-max mx-auto my-12">
+        <form action="result.html">
+            <p>
+                <label for="kind">お問い合わせの種類</label><br>
+                <select name="kind" id="kind" class=" border border-slate-400 rounded-md">
+                    <option value="1">ご予約</option>
+                    <option value="2">イベントに関するお問い合わせ</option>
+                    <option value="3">その他</option>
+                </select>
+            </p>
+            <p>
+                はじめてのご来店ですか？<br>
+                <label><input type="radio" name="first" id="yes" value="yes" checked>はい</label><br>
+                <label><input type="radio" name="first" id="no" value="no" checked>いいえ</label>
+            </p>
+            <p>
+                当カフェをお知りになったきっかけは？<br>
+                <label><input type="checkbox" name="how" value="friend">知り合いの紹介で</label><br>
+                <label><input type="checkbox" name="how" value="magazine">SNS, Webサイト, 雑誌などを見て</label>
+            </p>
+            <p>
+                <label for="subject">お問い合わせの件名</label><br>
+                <input type="text" name="subject" placeholder="タイトル" id="subject" class="p-1 w-96 border border-slate-400 rounded-md">
+            </p>
+            <p>
+                <label for="message">お問い合わせの具体的な内容</label><br>
+                <textarea name="message" id="message" class="p-1 w-96 h-52 border border-slate-400 rounded-md"></textarea>
+            </p>
+            <p class="text-center">
+                <input type="submit" value="送信" class="bg-blue-500 text-white font-bold mt-4 py-2 px-8 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            </p>
+        </form>
+    </main>
+    <footer>
+        <div>
+            <a href="#top"><img src="images/gotop.svg" alt="" class="mx-auto my-4"></a>
+        </div>
+        <p class="text-center bg-blue-950 text-white p-2">&copy; KUZIRA CAFE</p>
+    </footer>
+    
+</body>
+</html>

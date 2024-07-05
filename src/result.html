@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>フォーム入力内容の確認 | KUZIRA CAFE</title>
+    <link href="./output.css" rel="stylesheet">
+    <style>
+        .result {
+            border-collapse: collapse;
+        }
+        .result th, .result td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body id="top" class="font-sans">
+    <!-- ヘッダー -->
+    <header class="bg-stripe-bg bg-repeat-x pt-6">
+        <div class="py-2">
+            <a href="index.html"><img src="images/logo.svg" alt="KUZIRA CAFE" class="mx-auto"></a>
+        </div>
+
+        <nav>
+            <ul class="text-blue-800 my-6 flex justify-center md:gap-8 gap-4 md:flex-nowrap flex-wrap">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="index.html#news">お知らせ</a></li>
+                <li><a href="index.html#shop">店舗案内</a></li>
+                <li><a href="access.html">アクセス</a></li>
+                <li><a href="menu.html">メニュー</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- ヘッダーここまで -->
+    <!-- 見出し&ヒーロー -->
+    <h1 class="text-center text-4xl font-extrabold font-mono bg-contact-hero-bg py-48 bg-no-repeat bg-cover bg-center text-white">お問い合わせ</h1>
+    <!-- 見出し&ヒーローここまで -->
+    <!-- メイン -->
+    <main class="max-w-max mx-auto my-12">
+        <h2>フォームの入力内容は正しく送信されていますか？</h2>
+        <table id="result" class="result">
+            <tr>
+                <th>設問</th>
+                <th>入力内容</th>
+            </tr>
+        </table>
+    </main>
+    <!-- メインここまで -->
+    <!-- フッター -->
+    <footer>
+        <div>
+            <a href="#top"><img src="images/gotop.svg" alt="" class="mx-auto my-4"></a>
+        </div>
+        <p class="text-center bg-blue-950 text-white p-2">&copy; KUZIRA CAFE</p>
+    </footer>
+    <!-- フッターここまで -->
+    <script>
+        'use strict';
+
+        const render = function(q) {
+            const parent = document.getElementById('result');
+            for (const item of q) {
+                parent.insertAdjacentHTML('beforeend', `<tr><td>${item[0]}</td><td>${item[1]}</td></tr>`);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', (e) => {
+            try {
+                const urlParam = decodeURIComponent(location.search.replace(/\+/g, ' ')).slice(1);
+                const qList = urlParam.split('&');
+                const queries = [];
+                for (const item of qList) {
+                    const split = item.split('=');
+                    queries.push([split[0], split[1].split('<').join('&lt;').split('>').join('&gt;')]);
+                }
+                render(queries);
+            } catch(err) {
+                console.log(err);
+            }
+        });
+    </script>
+</body>
+</html>
